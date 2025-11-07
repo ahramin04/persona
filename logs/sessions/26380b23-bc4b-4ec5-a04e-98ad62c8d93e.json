@@ -1,0 +1,26 @@
+{
+  "session_id": "26380b23-bc4b-4ec5-a04e-98ad62c8d93e",
+  "created_at": "2025-10-07T11:19:42.939791",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is AI?",
+      "timestamp": "2025-10-07T11:19:42.939791",
+      "intent": "query",
+      "intent_confidence": 0.98,
+      "keywords": [
+        "what"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "role": "assistant",
+      "content": " Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think and learn like humans. These machines are designed to perform tasks that would normally require human intelligence, such as understanding natural language, recognizing objects, making decisions, solving problems, and learning from experience. AI can be categorized into three types: narrow or weak AI (designed to perform a specific task), general or strong AI (able to perform any intellectual task that a human being can do), and superintelligence (an AI that is much smarter than the smartest human).\n\nAI technology is based on various approaches, including symbolic AI, connectionist AI, evolutionary AI, Bayesian networks, fuzzy systems, neural networks, genetic algorithms, machine learning, and deep learning. AI has a wide range of applications in various fields such as medicine, finance, transportation, entertainment, education, and more. It's an exciting field that is constantly evolving and holds great potential for the future.",
+      "timestamp": "2025-10-07T11:19:46.851866",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    }
+  ]
+}

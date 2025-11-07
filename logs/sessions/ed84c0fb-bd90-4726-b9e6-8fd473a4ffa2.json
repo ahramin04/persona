@@ -1,0 +1,27 @@
+{
+  "session_id": "ed84c0fb-bd90-4726-b9e6-8fd473a4ffa2",
+  "created_at": "2025-10-07T11:31:14.592919",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello there!",
+      "timestamp": "2025-10-07T11:31:14.592919",
+      "intent": "greetings",
+      "intent_confidence": 0.98,
+      "keywords": [
+        "hello",
+        "there"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "role": "assistant",
+      "content": " Hello! It's nice to meet you. How can I help you today?",
+      "timestamp": "2025-10-07T11:31:14.931674",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    }
+  ]
+}

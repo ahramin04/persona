@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - Offline LLM Chat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .nav-button {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .endpoint {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .endpoint-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .method {
+            padding: 0.25rem 0.75rem;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .method.post { background: #28a745; color: white; }
+        .method.get { background: #007bff; color: white; }
+        .method.delete { background: #dc3545; color: white; }
+
+        .endpoint-path {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .endpoint-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .parameters {
+            margin-bottom: 1rem;
+        }
+
+        .parameters h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .parameter {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .parameter-name {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            min-width: 120px;
+            color: #333;
+        }
+
+        .parameter-type {
+            color: #666;
+            min-width: 80px;
+        }
+
+        .parameter-description {
+            color: #666;
+            flex: 1;
+        }
+
+        .example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        .response {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .response h4 {
+            color: #2d5a2d;
+            margin-bottom: 0.5rem;
+        }
+
+        .swagger-link {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .swagger-link h3 {
+            margin-bottom: 1rem;
+        }
+
+        .swagger-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .swagger-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Offline LLM Chat API</h1>
+            <p>Complete API documentation for offline AI chat using Mistral 7B via LM Studio</p>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="/" class="nav-button">Chat Interface</a>
+            <a href="/docs" class="nav-button">Interactive Swagger UI</a>
+            <a href="/redoc" class="nav-button">ReDoc Documentation</a>
+        </div>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method post">POST</span>
+                <span class="endpoint-path">/api/chat</span>
+            </div>
+            <div class="endpoint-description">
+                Send a message to the AI. If session_id is provided, continues existing conversation. If not, creates a new session.
+            </div>
+            <div class="parameters">
+                <h4>Request Body:</h4>
+                <div class="parameter">
+                    <span class="parameter-name">message</span>
+                    <span class="parameter-type">string</span>
+                    <span class="parameter-description">The user's message to send to the AI (required)</span>
+                </div>
+                <div class="parameter">
+                    <span class="parameter-name">session_id</span>
+                    <span class="parameter-type">string</span>
+                    <span class="parameter-description">Optional session ID to continue an existing conversation</span>
+                </div>
+                <div class="parameter">
+                    <span class="parameter-name">temperature</span>
+                    <span class="parameter-type">float</span>
+                    <span class="parameter-description">Controls randomness in AI responses (0.0 to 1.0, default: 0.7)</span>
+                </div>
+                <div class="parameter">
+                    <span class="parameter-name">max_tokens</span>
+                    <span class="parameter-type">int</span>
+                    <span class="parameter-description">Maximum tokens in response (-1 for unlimited, default: -1)</span>
+                </div>
+            </div>
+            <div class="example">
+{
+  "message": "What is cotton candy?",
+  "session_id": "abc123-def456-ghi789",
+  "temperature": 0.7,
+  "max_tokens": -1
+}
+            </div>
+            <div class="response">
+                <h4>Response:</h4>
+                <p>Returns session ID, AI response message, and complete conversation history.</p>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method get">GET</span>
+                <span class="endpoint-path">/api/sessions/{session_id}</span>
+            </div>
+            <div class="endpoint-description">
+                Retrieve a complete chat session including all messages and timestamps.
+            </div>
+            <div class="parameters">
+                <h4>Path Parameters:</h4>
+                <div class="parameter">
+                    <span class="parameter-name">session_id</span>
+                    <span class="parameter-type">string</span>
+                    <span class="parameter-description">The unique identifier of the session to retrieve</span>
+                </div>
+            </div>
+            <div class="response">
+                <h4>Response:</h4>
+                <p>Returns complete session data with all messages, timestamps, and metadata.</p>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method get">GET</span>
+                <span class="endpoint-path">/api/sessions</span>
+            </div>
+            <div class="endpoint-description">
+                Get a list of all available chat session IDs, sorted by most recent first.
+            </div>
+            <div class="response">
+                <h4>Response:</h4>
+                <p>Returns an array of session IDs that can be used to retrieve specific sessions.</p>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method get">GET</span>
+                <span class="endpoint-path">/api/sessions/{session_id}/messages</span>
+            </div>
+            <div class="endpoint-description">
+                Retrieve only the messages from a specific session without session metadata.
+            </div>
+            <div class="parameters">
+                <h4>Path Parameters:</h4>
+                <div class="parameter">
+                    <span class="parameter-name">session_id</span>
+                    <span class="parameter-type">string</span>
+                    <span class="parameter-description">The unique identifier of the session</span>
+                </div>
+            </div>
+            <div class="response">
+                <h4>Response:</h4>
+                <p>Returns a list of messages in chronological order.</p>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method delete">DELETE</span>
+                <span class="endpoint-path">/api/sessions/{session_id}</span>
+            </div>
+            <div class="endpoint-description">
+                Permanently delete a chat session and all its messages.
+            </div>
+            <div class="parameters">
+                <h4>Path Parameters:</h4>
+                <div class="parameter">
+                    <span class="parameter-name">session_id</span>
+                    <span class="parameter-type">string</span>
+                    <span class="parameter-description">The unique identifier of the session to delete</span>
+                </div>
+            </div>
+            <div class="response">
+                <h4>Response:</h4>
+                <p>Returns success message if deletion was successful.</p>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <div class="endpoint-header">
+                <span class="method get">GET</span>
+                <span class="endpoint-path">/api/health</span>
+            </div>
+            <div class="endpoint-description">
+                Check if the application and LM Studio are running properly.
+            </div>
+            <div class="response">
+                <h4>Response:</h4>
+                <p>Returns status information about the service and LM Studio connectivity.</p>
+            </div>
+        </div>
+
+        <div class="swagger-link">
+            <h3>🚀 Interactive API Testing</h3>
+            <p>Use the interactive Swagger UI to test all endpoints directly in your browser</p>
+            <a href="/docs">Open Swagger UI →</a>
+        </div>
+    </div>
+</body>
+</html>

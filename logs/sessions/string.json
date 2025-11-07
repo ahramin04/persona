@@ -1,0 +1,91 @@
+{
+  "session_id": "string",
+  "created_at": "2025-10-07T10:29:43.551434",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello",
+      "timestamp": "2025-10-07T10:29:43.551434",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    },
+    {
+      "role": "assistant",
+      "content": " Hello! How can I help you today? Is there something specific you'd like to talk about or ask? I'm here to assist with any questions you have.",
+      "timestamp": "2025-10-07T10:29:44.336947",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    },
+    {
+      "role": "user",
+      "content": "how to make biryani",
+      "timestamp": "2025-10-07T10:42:34.443716",
+      "intent": "query",
+      "intent_confidence": 0.16454545454545455,
+      "keywords": [
+        "how",
+        "make",
+        "biryani"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "role": "assistant",
+      "content": " Biryani is a flavorful and aromatic rice dish that originates from the Indian subcontinent, particularly in countries like India, Pakistan, Bangladesh, and Sri Lanka. There are many regional variations of biryani, but here's a basic recipe for an authentic Hyderabadi biryani that you can try at home:\n\nIngredients:\n\n* 2 pounds boneless chicken (or mutton, if preferred)\n* 1 cup yogurt\n* 1 tablespoon garlic paste\n* 1 tablespoon ginger paste\n* 1 tablespoon red chili powder\n* 1 teaspoon turmeric powder\n* Salt to taste\n* 2 cups basmati rice\n* 4 cups water\n* 1/4 cup oil or ghee\n* 6 green cardamom pods\n* 2 black cardamom pods\n* 2 cinnamon sticks\n* 8 cloves\n* 2 bay leaves\n* 2 star anise\n* 1 large onion, finely chopped\n* 1 cup chopped tomatoes\n* 1/4 cup coriander leaves, finely chopped\n* 1/4 cup mint leaves, finely chopped\n* Saffron strands soaked in 3 tablespoons of warm milk (optional)\n* Garam masala powder (optional)\n\nInstructions:\n\n1. In a large bowl, marinate the chicken with yogurt, garlic paste, ginger paste, red chili powder, turmeric powder, salt, and half of the coriander leaves. Cover and refrigerate for at least 30 minutes or overnight.\n\n2. Wash the basmati rice thoroughly until the water runs clear. Soak the rice in enough water to cover it for 30 minutes. Drain and set aside.\n\n3. In a large heavy-bottomed pot, heat oil or ghee over medium heat. Add the whole spices (cardamom pods, cinnamon sticks, cloves, bay leaves, and star anise) and fry until fragrant.\n\n4. Add the chopped onion to the pot and sauté until golden brown. Add the chopped tomatoes and cook until softened.\n\n5. Remove half of the cooked onions and tomatoes from the pot and set aside in a separate bowl. Leave the remaining mixture in the pot.\n\n6. Spread half of the marinated chicken pieces over the onion-tomato mixture in the pot, making sure they are evenly distributed.\n\n7. Layer half of the soaked and drained rice over the chicken. Top with the reserved onions and tomatoes. Place the remaining chicken pieces on top of the layer and finish with the rest of the rice.\n\n8. Drizzle saffron milk (if using) over the rice, and sprinkle garam masala powder (if desired). Cover the pot with a lid, and cook on low heat for 20 minutes.\n\n9. Reduce the heat to low and let the biryani steam for another 15-20 minutes without lifting the lid. Do not stir during this process as it will disturb the layers of the biryani.\n\n10. After steaming, fluff the rice gently with a fork or spoon and garnish with the remaining coriander leaves before serving. Enjoy your homemade Biryani!",
+      "timestamp": "2025-10-07T10:42:48.864717",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    },
+    {
+      "role": "user",
+      "content": "thanks for telling this",
+      "timestamp": "2025-10-07T10:45:17.159790",
+      "intent": "query",
+      "intent_confidence": 0.1,
+      "keywords": [
+        "thanks",
+        "telling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "role": "assistant",
+      "content": " You're welcome! I hope you enjoy making and eating biryani at home. Don't hesitate to ask if you have any more questions, or if there's anything else I can help with. Have a great day!",
+      "timestamp": "2025-10-07T10:45:18.778872",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    },
+    {
+      "role": "user",
+      "content": "tell me about big bang theory",
+      "timestamp": "2025-10-07T10:45:48.643051",
+      "intent": "query",
+      "intent_confidence": 0.1,
+      "keywords": [
+        "tell",
+        "about",
+        "big",
+        "bang",
+        "theory"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "role": "assistant",
+      "content": " The Big Bang Theory is an American sitcom that originally aired from September 24, 2007, to May 16, 2019, on CBS. Created by Chuck Lorre and Bill Prady, the show revolves around five characters who are scientists or students at California Institute of Technology (Caltech) in Pasadena, California: Leonard Hofstadter, Sheldon Cooper, Howard Wolowitz, Rajesh Koothrappali, and Amy Farrah Fowler.\n\nThe series was based on the lives and relationships of these characters as they navigate their work at Caltech, their personal lives, and their quirky personalities. The show is known for its humor, pop culture references, and complex character dynamics, which have resonated with audiences worldwide.\n\nThroughout the show's 12 seasons, the characters face various challenges in their relationships, careers, and friendships, including Leonard and Penny's romantic journey, Sheldon's struggles to maintain his rigid routines, Howard's marriage to Bernadette Rostenkowski, Raj's attempts to overcome social anxiety when it comes to women, and Amy's growth as a scientist and her relationship with Sheldon.\n\nThe Big Bang Theory was highly popular during its run and received numerous awards, including multiple Primetime Emmy Awards, Golden Globe Awards, and People's Choice Awards. The series finale aired in May 2019, concluding the stories of the main characters. If you haven't seen it yet, I would recommend checking it out as it's a fun and entertaining show with memorable characters and lots of laughs!",
+      "timestamp": "2025-10-07T10:45:55.613109",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    }
+  ]
+}

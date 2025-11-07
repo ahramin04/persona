@@ -1,0 +1,74 @@
+{
+  "session_id": "20d74309-9da8-44fa-b645-cc279a8edcba",
+  "created_at": "2025-10-07T11:12:17.400262",
+  "messages": [
+    {
+      "role": "user",
+      "content": "where do blue whales live",
+      "timestamp": "2025-10-07T11:12:17.400262",
+      "intent": "query",
+      "intent_confidence": 0.98,
+      "keywords": [
+        "where",
+        "blue",
+        "whales",
+        "live"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "role": "assistant",
+      "content": " Blue whales are found in all the world's oceans, but they prefer cooler waters. In the Northern Hemisphere, they can be found in the North Atlantic and North Pacific Oceans, as well as the Arctic Ocean during summer months. In the Southern Hemisphere, they inhabit the Antarctic, Indian, and southwestern Pacific Oceans. They migrate according to food availability, typically moving towards the poles during the summer months for feeding and back towards the equator in the winter for breeding and calving.",
+      "timestamp": "2025-10-07T11:12:19.533461",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    },
+    {
+      "role": "user",
+      "content": "why can't they live on land",
+      "timestamp": "2025-10-07T11:12:58.522553",
+      "intent": "query",
+      "intent_confidence": 0.98,
+      "keywords": [
+        "why",
+        "live",
+        "land"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "role": "assistant",
+      "content": " Blue whales, like all other whale species, are marine mammals that have adapted to living in water. They lack limbs that could support their weight on land, and their bodies are not structured to breathe air or to obtain food from terrestrial sources. Additionally, their buoyant bodies would not be able to move effectively against gravity on land. In summary, blue whales are designed for life in the aquatic environment.",
+      "timestamp": "2025-10-07T11:13:00.266323",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    },
+    {
+      "role": "user",
+      "content": "i heard that seaguls too live with them ",
+      "timestamp": "2025-10-07T11:13:37.141303",
+      "intent": "information",
+      "intent_confidence": 0.85,
+      "keywords": [
+        "heard",
+        "seaguls",
+        "too",
+        "live"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "role": "assistant",
+      "content": " While it's not entirely accurate to say that seagulls live with blue whales, they can sometimes be found near areas where blue whales are present, particularly if there is abundant food for both species. Seagulls feed on various organisms such as fish and invertebrates, while blue whales primarily consume krill and small schooling fish. In some cases, seagulls may follow feeding blue whales to scavenge on any leftovers or byproducts of the whale's meals. However, their habitats and diets are quite distinct. Seagulls can be found in coastal areas all around the world, while blue whales prefer deep ocean waters.",
+      "timestamp": "2025-10-07T11:13:40.074650",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    }
+  ]
+}

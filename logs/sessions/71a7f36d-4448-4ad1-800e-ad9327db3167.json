@@ -1,0 +1,29 @@
+{
+  "session_id": "71a7f36d-4448-4ad1-800e-ad9327db3167",
+  "created_at": "2025-10-07T11:05:27.237351",
+  "messages": [
+    {
+      "role": "user",
+      "content": "thanks a lot for your help",
+      "timestamp": "2025-10-07T11:05:27.237351",
+      "intent": "query",
+      "intent_confidence": 0.1,
+      "keywords": [
+        "thanks",
+        "lot",
+        "your",
+        "help"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "role": "assistant",
+      "content": " You're welcome! I'm here to help. If you have any other questions or need further assistance, feel free to ask. Have a great day!",
+      "timestamp": "2025-10-07T11:05:28.085780",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    }
+  ]
+}

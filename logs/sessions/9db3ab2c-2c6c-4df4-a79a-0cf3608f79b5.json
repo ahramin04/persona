@@ -1,0 +1,28 @@
+{
+  "session_id": "9db3ab2c-2c6c-4df4-a79a-0cf3608f79b5",
+  "created_at": "2025-10-07T11:22:58.493389",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hey mate, wassup",
+      "timestamp": "2025-10-07T11:22:58.493389",
+      "intent": "greetings",
+      "intent_confidence": 0.98,
+      "keywords": [
+        "hey",
+        "mate",
+        "wassup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "role": "assistant",
+      "content": " Hello there! I'm here to help you out. How can I assist you today?",
+      "timestamp": "2025-10-07T11:22:58.875940",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    }
+  ]
+}

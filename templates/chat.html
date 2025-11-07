@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline LLM Chat - Mistral 7B</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .session-info {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .chat-messages {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            overflow-y: auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .message.user {
+            text-align: right;
+        }
+
+        .message.assistant {
+            text-align: left;
+        }
+
+        .message-content {
+            display: inline-block;
+            max-width: 70%;
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            word-wrap: break-word;
+            line-height: 1.5;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message.assistant .message-content {
+            background: #f8f9fa;
+            color: #333;
+            border: 1px solid #e9ecef;
+            border-bottom-left-radius: 5px;
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .message-input:focus {
+            border-color: #667eea;
+        }
+
+        .send-button {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .send-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .send-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .session-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .session-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .session-button {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .session-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin: 1rem 0;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #f5c6cb;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 1rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .typing-indicator::after {
+            content: '...';
+            animation: dots 1.5s infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+    </style>
+</head>
+<body>
+        <div class="header">
+            <h1>🤖 Offline LLM Chat - Mistral 7B</h1>
+            <div class="session-info">
+                Session ID: <span id="current-session">New Session</span>
+                <div style="margin-top: 0.5rem;">
+                    <a href="/api-docs" style="color: rgba(255, 255, 255, 0.9); text-decoration: none; margin-right: 1rem;">📚 API Docs</a>
+                    <a href="/docs" style="color: rgba(255, 255, 255, 0.9); text-decoration: none;">🔧 Swagger UI</a>
+                </div>
+            </div>
+        </div>
+
+    <div class="chat-container">
+        <div class="session-controls">
+            <input type="text" id="session-input" class="session-input" placeholder="Enter Session ID to continue chat...">
+            <button onclick="loadSession()" class="session-button">Load Session</button>
+            <button onclick="newSession()" class="session-button">New Session</button>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+            <div class="message assistant">
+                <div class="message-content">
+                    Hello! I'm your offline AI assistant powered by Mistral 7B. I can help you with various topics and remember our conversation. How can I assist you today?
+                </div>
+                <div class="message-time" id="welcome-time"></div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">AI is thinking...</div>
+        <div class="typing-indicator" id="typing-indicator">AI is typing</div>
+
+        <div class="input-container">
+            <input type="text" id="message-input" class="message-input" placeholder="Type your message here..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()" class="send-button" id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSessionId = null;
+        let isLoading = false;
+
+        // Set welcome message time
+        document.getElementById('welcome-time').textContent = new Date().toLocaleTimeString();
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter' && !isLoading) {
+                sendMessage();
+            }
+        }
+
+        async function sendMessage() {
+            const messageInput = document.getElementById('message-input');
+            const message = messageInput.value.trim();
+            
+            if (!message || isLoading) return;
+
+            // Add user message to chat
+            addMessage('user', message);
+            messageInput.value = '';
+            
+            // Show loading
+            setLoading(true);
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        session_id: currentSessionId,
+                        temperature: 0.7,
+                        max_tokens: -1
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                // Update session ID
+                currentSessionId = data.session_id;
+                document.getElementById('current-session').textContent = currentSessionId;
+                
+                // Add assistant response
+                addMessage('assistant', data.message);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                addMessage('assistant', 'Sorry, I encountered an error. Please make sure LM Studio is running and try again.');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        function addMessage(role, content) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+            
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            
+            messageDiv.innerHTML = `
+                <div class="message-content">${content}</div>
+                <div class="message-time">${timeString}</div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function setLoading(loading) {
+            isLoading = loading;
+            const sendButton = document.getElementById('send-button');
+            const loadingDiv = document.getElementById('loading');
+            const typingDiv = document.getElementById('typing-indicator');
+            
+            if (loading) {
+                sendButton.disabled = true;
+                sendButton.textContent = 'Sending...';
+                loadingDiv.style.display = 'block';
+                typingDiv.style.display = 'block';
+            } else {
+                sendButton.disabled = false;
+                sendButton.textContent = 'Send';
+                loadingDiv.style.display = 'none';
+                typingDiv.style.display = 'none';
+            }
+        }
+
+        async function loadSession() {
+            const sessionInput = document.getElementById('session-input');
+            const sessionId = sessionInput.value.trim();
+            
+            if (!sessionId) {
+                alert('Please enter a session ID');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/sessions/${sessionId}`);
+                
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        alert('Session not found');
+                        return;
+                    }
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const session = await response.json();
+                
+                // Clear current chat
+                const chatMessages = document.getElementById('chat-messages');
+                chatMessages.innerHTML = '';
+                
+                // Load session messages
+                session.messages.forEach(msg => {
+                    addMessage(msg.role, msg.content);
+                });
+                
+                // Update current session
+                currentSessionId = sessionId;
+                document.getElementById('current-session').textContent = sessionId;
+                sessionInput.value = '';
+                
+            } catch (error) {
+                console.error('Error loading session:', error);
+                alert('Error loading session. Please try again.');
+            }
+        }
+
+        function newSession() {
+            // Clear current chat
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.innerHTML = '';
+            
+            // Reset session
+            currentSessionId = null;
+            document.getElementById('current-session').textContent = 'New Session';
+            document.getElementById('session-input').value = '';
+            
+            // Add welcome message
+            addMessage('assistant', 'Hello! I\'m your offline AI assistant powered by Mistral 7B. I can help you with various topics and remember our conversation. How can I assist you today?');
+        }
+    </script>
+</body>
+</html>

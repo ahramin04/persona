@@ -1,0 +1,28 @@
+{
+  "session_id": "e4ccfe93-87ec-4d16-a2c5-89ee923259f4",
+  "created_at": "2025-10-07T11:33:45.284093",
+  "messages": [
+    {
+      "role": "user",
+      "content": "how's the weather in LA now",
+      "timestamp": "2025-10-07T11:33:45.284093",
+      "intent": "query",
+      "intent_confidence": 0.98,
+      "keywords": [
+        "how",
+        "weather",
+        "now"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "role": "assistant",
+      "content": " I don't have real-time capabilities, but as of my last update, Los Angeles typically has a Mediterranean climate with warm, dry summers and mild, wet winters. However, for the most accurate and up-to-date information, I recommend checking a reliable weather website or app.",
+      "timestamp": "2025-10-07T11:33:46.456463",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    }
+  ]
+}

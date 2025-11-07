@@ -1,0 +1,26 @@
+{
+  "session_id": "c54d24db-8380-4756-9cc5-60f807199057",
+  "created_at": "2025-10-07T11:19:18.564368",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is AI?",
+      "timestamp": "2025-10-07T11:19:18.564368",
+      "intent": "query",
+      "intent_confidence": 0.98,
+      "keywords": [
+        "what"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "role": "assistant",
+      "content": " Artificial Intelligence (AI) refers to the simulation of human intelligence processes by machines, especially computer systems. These processes include learning, reasoning, problem-solving, perception, and language understanding. The goal of AI is to create intelligent systems that can perform tasks that would normally require human intelligence.\n\nAI systems are designed to automatically improve their performance on a specific task over time, making them increasingly effective and efficient as they learn from data and experience. There are different types of AI, including narrow or weak AI (designed to perform one specific task, like voice recognition), general or strong AI (capable of performing any intellectual task that a human being can do), and superintelligence (an AI that is more intelligent than the smartest human beings in practically every field).\n\nAI has been integrated into many aspects of our lives, including personal assistants, recommendation systems, autonomous vehicles, and medical diagnosis tools. However, it also raises important ethical questions related to privacy, bias, and job displacement.",
+      "timestamp": "2025-10-07T11:19:22.482801",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    }
+  ]
+}

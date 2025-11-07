@@ -1,0 +1,50 @@
+{
+  "session_id": "8efcaa91-e149-40f0-a14e-0f91fc398c00",
+  "created_at": "2025-10-07T10:58:52.050260",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello, what is cotton candy?",
+      "timestamp": "2025-10-07T10:58:52.050260",
+      "intent": "query",
+      "intent_confidence": 0.15636363636363637,
+      "keywords": [
+        "hello",
+        "what",
+        "cotton",
+        "candy"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "role": "assistant",
+      "content": " Hello! Cotton candy, also known as candy floss or fairy floss, is a sweet treat made from spun and heated sugar syrup. The resulting product has a fluffy, airy texture that resembles cotton. It's often flavored with various essences such as strawberry, vanilla, and blue raspberry, among others. Cotton candy is commonly found at carnivals, amusement parks, and fairs.",
+      "timestamp": "2025-10-07T10:58:54.173094",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    },
+    {
+      "role": "user",
+      "content": "How do you make it?",
+      "timestamp": "2025-10-07T10:59:04.686895",
+      "intent": "query",
+      "intent_confidence": 0.16454545454545455,
+      "keywords": [
+        "how",
+        "make"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "role": "assistant",
+      "content": " Making cotton candy involves heating sugar syrup to a high temperature until it caramelizes and becomes sticky. This melted sugar is then spun onto a rapidly rotating surface using a machine called a cotton candy maker or floss machine. The spinning process creates the characteristic cotton-like texture of the candy. The flavors are added to the sugar syrup before heating, giving the final product its distinctive taste.",
+      "timestamp": "2025-10-07T10:59:06.600875",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    }
+  ]
+}

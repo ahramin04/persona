@@ -1,0 +1,26 @@
+{
+  "session_id": "fabb80c9-3219-4ccf-bed0-c00ad5326d77",
+  "created_at": "2025-10-07T11:25:11.828095",
+  "messages": [
+    {
+      "role": "user",
+      "content": "what is ML",
+      "timestamp": "2025-10-07T11:25:11.828095",
+      "intent": "query",
+      "intent_confidence": 0.98,
+      "keywords": [
+        "what"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "role": "assistant",
+      "content": " Machine Learning (ML) is a subset of artificial intelligence that focuses on the development of algorithms and statistical models that allow computers to perform tasks without being explicitly programmed. It's about teaching machines to learn from data, identify patterns, and make decisions with minimal human intervention.\n\nMachine learning can be categorized into three main types: supervised learning, unsupervised learning, and reinforcement learning. In supervised learning, the model is trained on a labeled dataset, meaning the correct output (label) is provided for each input example during training. In unsupervised learning, the model tries to find hidden patterns or structures in the data without any specific labeling. Reinforcement learning involves an agent interacting with an environment to learn a policy that maximizes some reward signal over time.\n\nSome common applications of machine learning include image and speech recognition, natural language processing, recommendation systems, and predictive maintenance among others. It's playing an increasingly important role in various industries such as healthcare, finance, retail, and self-driving vehicles.",
+      "timestamp": "2025-10-07T11:25:15.807178",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "session_id": "74dcebb0-d71d-4038-ae60-79358e3c0526",
+  "created_at": "2025-10-07T11:07:28.507142",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hey there, how are you doing?",
+      "timestamp": "2025-10-07T11:07:28.507142",
+      "intent": "greetings",
+      "intent_confidence": 0.98,
+      "keywords": [
+        "hey",
+        "there",
+        "how",
+        "doing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "role": "assistant",
+      "content": " Hello! I'm just a computer program, so I don't have feelings, but I'm here and ready to help you with any questions or tasks you might have. How can I assist you today?",
+      "timestamp": "2025-10-07T11:07:29.355509",
+      "intent": null,
+      "intent_confidence": null,
+      "keywords": null,
+      "complexity": null
+    }
+  ]
+}
